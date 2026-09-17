@@ -1,1090 +1,637 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaleab Walelign - DevOps Engineer & Technical Consultant</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --dark-color: #1e293b;
-            --light-color: #f8fafc;
-            --gray-color: #64748b;
-            --success-color: #10b981;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: var(--dark-color);
-            background-color: var(--light-color);
-        }
-        
-        h1, h2, h3, h4 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-        }
-        
-        h2 {
-            font-size: 2rem;
-            border-bottom: 3px solid var(--primary-color);
-            padding-bottom: 0.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        h3 {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-        }
-        
-        p {
-            margin-bottom: 1rem;
-        }
-        
-        a {
-            text-decoration: none;
-            color: var(--primary-color);
-            transition: color 0.3s;
-        }
-        
-        a:hover {
-            color: var(--secondary-color);
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header & Navigation */
-        header {
-            background-color: white;
-            box-shadow: var(--shadow);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-        
-        .logo {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-        
-        .logo span {
-            color: var(--secondary-color);
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 2rem;
-        }
-        
-        .nav-links a {
-            color: var(--dark-color);
-            font-weight: 500;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            font-size: 1.5rem;
-            background: none;
-            border: none;
-            color: var(--primary-color);
-            cursor: pointer;
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 10rem 0 5rem;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-        }
-        
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        
-        .hero-text h1 {
-            margin-bottom: 1rem;
-        }
-        
-        .hero-text .title {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 1.5rem;
-        }
-        
-        .contact-info {
-            margin-top: 2rem;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-        
-        .contact-item i {
-            margin-right: 10px;
-            color: var(--primary-color);
-            width: 20px;
-        }
-        
-        .hero-image {
-            text-align: center;
-        }
-        
-        .profile-img {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid white;
-            box-shadow: var(--shadow);
-        }
-        
-        /* Section Styling */
-        section {
-            padding: 5rem 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        /* Experience Section */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: var(--primary-color);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-        }
-        
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-            margin-bottom: 2rem;
-        }
-        
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-        
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-        
-        .timeline-content {
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            position: relative;
-        }
-        
-        .timeline-content h3 {
-            margin-top: 0;
-        }
-        
-        .time-period {
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        
-        .timeline-item:nth-child(odd) .timeline-content::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -10px;
-            background-color: white;
-            top: 30px;
-            border-radius: 50%;
-            z-index: 1;
-            border: 4px solid var(--primary-color);
-        }
-        
-        .timeline-item:nth-child(even) .timeline-content::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            left: -10px;
-            background-color: white;
-            top: 30px;
-            border-radius: 50%;
-            z-index: 1;
-            border: 4px solid var(--primary-color);
-        }
-        
-        /* Skills Section */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .skill-category {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-        }
-        
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-        
-        .skill-tag {
-            background-color: #dbeafe;
-            color: var(--primary-color);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-        
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .project-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .project-content {
-            padding: 1.5rem;
-        }
-        
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-        
-        .tech-tag {
-            background-color: #f1f5f9;
-            color: var(--gray-color);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-        }
-        
-        /* Certificates Section */
-        .certificates-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .certificate-card {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            border-left: 4px solid var(--primary-color);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s;
-        }
-        
-        .social-links a:hover {
-            color: var(--primary-color);
-        }
-        
-        .copyright {
-            color: #cbd5e1;
-            font-size: 0.9rem;
-            margin-top: 2rem;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-            
-            .timeline-item:nth-child(odd) .timeline-content::after,
-            .timeline-item:nth-child(even) .timeline-content::after {
-                left: 21px;
-                right: auto;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: white;
-                flex-direction: column;
-                padding: 1rem 0;
-                box-shadow: var(--shadow);
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .nav-links li {
-                margin: 0;
-                text-align: center;
-                padding: 0.8rem 0;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            h2 {
-                font-size: 1.8rem;
-            }
-        }
-        
-        /* Tabs for Skills */
-        .tabs {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-            border-bottom: 2px solid #e2e8f0;
-        }
-        
-        .tab {
-            padding: 1rem 1.5rem;
-            cursor: pointer;
-            font-weight: 500;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s;
-        }
-        
-        .tab.active {
-            color: var(--primary-color);
-            border-bottom: 3px solid var(--primary-color);
-        }
-        
-        .tab-content {
-            display: none;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        /* Print button */
-        .print-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--primary-color);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow);
-            cursor: pointer;
-            z-index: 100;
-            transition: background-color 0.3s;
-        }
-        
-        .print-btn:hover {
-            background-color: var(--secondary-color);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaleab Walelign, Principal DevOps Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  /* ---------- Tokens ---------- */
+  :root{
+    --bg: #F2EFE6;
+    --bg-grid: #E3DFD1;
+    --surface: #FBFAF6;
+    --surface-2: #EBE7DA;
+    --border: #D2CBB8;
+    --text: #1B1D17;
+    --text-muted: #666052;
+    --accent: #C4571E;      /* signal orange , echoes Prometheus/Grafana monitoring palette */
+    --accent-soft: #C4571E1a;
+    --accent-2: #2E6B7E;    /* steel teal , secondary/status */
+    --accent-2-soft: #2E6B7E1a;
+    --good: #3E7B4F;
+    --radius: 3px;
+    --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg: #0F1316;
+      --bg-grid: #171C20;
+      --surface: #151A1E;
+      --surface-2: #1B2126;
+      --border: #2A3238;
+      --text: #E9EEEF;
+      --text-muted: #8B9AA1;
+      --accent: #E38A46;
+      --accent-soft: #E38A4622;
+      --accent-2: #6FB3C4;
+      --accent-2-soft: #6FB3C422;
+      --good: #6FC58A;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg: #0F1316;
+    --bg-grid: #171C20;
+    --surface: #151A1E;
+    --surface-2: #1B2126;
+    --border: #2A3238;
+    --text: #E9EEEF;
+    --text-muted: #8B9AA1;
+    --accent: #E38A46;
+    --accent-soft: #E38A4622;
+    --accent-2: #6FB3C4;
+    --accent-2-soft: #6FB3C422;
+    --good: #6FC58A;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      linear-gradient(var(--bg-grid) 1px, transparent 1px) 0 0/100% 44px,
+      linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px) 0 0/44px 100%,
+      var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important;} }
+
+  a{color:inherit; text-decoration:none;}
+  .container{width:92%; max-width:1120px; margin:0 auto;}
+  section{padding:6rem 0;}
+  img,svg{max-width:100%;}
+  ::selection{background:var(--accent-soft); color:var(--text);}
+
+  .mono{font-family:var(--mono);}
+  .kicker{
+    font-family:var(--mono);
+    font-size:.78rem;
+    color:var(--accent);
+    letter-spacing:.02em;
+    display:flex; align-items:center; gap:.5rem;
+    margin-bottom:.9rem;
+  }
+  .kicker::before{content:"";width:7px;height:7px;background:var(--accent);border-radius:1px;display:inline-block;}
+
+  h1,h2,h3,h4{font-family:var(--sans); font-weight:600; line-height:1.15;}
+  h2{font-size:clamp(1.6rem,3vw,2.2rem); margin-bottom:.4rem;}
+  .section-sub{color:var(--text-muted); max-width:52ch; margin-bottom:2.6rem; font-size:1rem;}
+
+  .hairline{border:none; border-top:1px solid var(--border); margin:0;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:1000;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  nav{display:flex; justify-content:space-between; align-items:center; padding:.95rem 0;}
+  .logo{font-family:var(--mono); font-size:.95rem; color:var(--text);}
+  .logo .prompt{color:var(--accent);}
+  .nav-links{display:flex; list-style:none; gap:2rem; font-size:.92rem;}
+  .nav-links a{color:var(--text-muted); transition:color .2s;}
+  .nav-links a:hover{color:var(--text);}
+  .nav-cta{
+    font-family:var(--mono); font-size:.82rem; border:1px solid var(--border);
+    padding:.45rem .9rem; border-radius:var(--radius); color:var(--text);
+    transition:border-color .2s, color .2s;
+  }
+  .nav-cta:hover{border-color:var(--accent); color:var(--accent);}
+  .mobile-menu-btn{display:none; background:none; border:none; color:var(--text); font-size:1.3rem; cursor:pointer;}
+
+  @media(max-width:820px){
+    .nav-links{
+      position:absolute; top:100%; left:0; right:0; flex-direction:column; gap:0;
+      background:var(--surface); border-bottom:1px solid var(--border);
+      display:none;
+    }
+    .nav-links.active{display:flex;}
+    .nav-links li{border-top:1px solid var(--border);}
+    .nav-links a{display:block; padding:1rem 6%;}
+    .nav-cta{display:none;}
+    .mobile-menu-btn{display:block;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{padding:9.5rem 0 4rem;}
+  .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:3rem; align-items:center;}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;} .hero{padding-top:7.5rem;}}
+
+  .hero h1{font-size:clamp(2.3rem,5.2vw,3.6rem); letter-spacing:-.01em;}
+  .hero .role{font-family:var(--mono); color:var(--accent); font-size:1.05rem; margin:.6rem 0 1.4rem;}
+  .hero p.lede{color:var(--text-muted); font-size:1.05rem; max-width:56ch; margin-bottom:2rem;}
+
+  .hero-actions{display:flex; flex-wrap:wrap; gap:.8rem; margin-bottom:2.2rem;}
+  .btn{
+    font-family:var(--mono); font-size:.85rem; padding:.75rem 1.3rem; border-radius:var(--radius);
+    display:inline-flex; align-items:center; gap:.5rem; transition:all .2s; border:1px solid transparent;
+  }
+  .btn-primary{background:var(--accent); color:#FBFAF6;}
+  .btn-primary:hover{opacity:.88;}
+  .btn-outline{border-color:var(--border); color:var(--text);}
+  .btn-outline:hover{border-color:var(--accent); color:var(--accent);}
+
+  .hero-meta{display:flex; flex-wrap:wrap; gap:1.4rem; font-size:.85rem; color:var(--text-muted); font-family:var(--mono);}
+  .hero-meta span{display:flex; align-items:center; gap:.5rem;}
+  .hero-meta i{color:var(--accent);}
+
+  /* topology diagram */
+  .topo-wrap{position:relative;}
+  .topo-label{
+    font-family:var(--mono); font-size:.68rem; fill:var(--text-muted);
+  }
+  .topo-label.strong{fill:var(--text); font-weight:600;}
+  .topo-node-dot{fill:var(--accent);}
+  .topo-node-dot.alt{fill:var(--accent-2);}
+  .topo-line{stroke:var(--border); stroke-width:1.2;}
+  .topo-ring{stroke:var(--border); fill:none; opacity:.6;}
+  .topo-center-pulse{
+    animation:pulse 3.2s ease-in-out infinite;
+    transform-origin:center;
+  }
+  @keyframes pulse{
+    0%,100%{opacity:.55; transform:scale(1);}
+    50%{opacity:.15; transform:scale(1.6);}
+  }
+
+  /* portrait placeholder */
+  .portrait-frame{
+    position:relative; width:100%; max-width:420px; aspect-ratio:1/1; margin:0 auto;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .portrait-rings{position:absolute; inset:0; width:100%; height:100%;}
+  .portrait-circle{
+    position:relative; width:70%; aspect-ratio:1/1; border-radius:50%;
+    background:var(--surface); border:2px solid var(--accent);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 0 0 10px var(--bg);
+    overflow:hidden;
+  }
+  .portrait-circle img{width:100%; height:100%; object-fit:cover; border-radius:50%;}
+  .portrait-mono{font-family:var(--mono); font-size:3rem; font-weight:600; color:var(--text-muted); letter-spacing:.02em;}
+  .portrait-tag{
+    position:absolute; bottom:6%; right:6%; background:var(--surface); border:1px solid var(--border);
+    border-radius:var(--radius); padding:.4rem .7rem; font-family:var(--mono); font-size:.72rem;
+    color:var(--text-muted); display:flex; align-items:center; gap:.4rem; box-shadow:0 0 0 6px var(--bg);
+  }
+  .portrait-tag i{color:var(--accent);}
+
+  /* ---------- Stats ---------- */
+  .stats{padding:3.2rem 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border);}
+  .stats-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:2rem;}
+  @media(max-width:760px){.stats-grid{grid-template-columns:repeat(2,1fr);}}
+  .stat-num{font-family:var(--mono); font-size:clamp(1.8rem,3.4vw,2.4rem); color:var(--accent); font-weight:600;}
+  .stat-label{font-size:.85rem; color:var(--text-muted); margin-top:.3rem;}
+
+  /* ---------- Principles ---------- */
+  .principles-grid{display:grid; grid-template-columns:repeat(2,1fr); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden;}
+  @media(max-width:760px){.principles-grid{grid-template-columns:1fr;}}
+  .principle{
+    padding:2.2rem; border-right:1px solid var(--border); border-bottom:1px solid var(--border);
+  }
+  .principles-grid .principle:nth-child(2n){border-right:none;}
+  .principles-grid .principle:nth-last-child(-n+2){border-bottom:none;}
+  @media(max-width:760px){
+    .principle{border-right:none !important;}
+    .principles-grid .principle:last-child{border-bottom:none;}
+  }
+  .principle .idx{font-family:var(--mono); color:var(--accent-2); font-size:.8rem; margin-bottom:.8rem; display:block;}
+  .principle h3{font-size:1.1rem; margin-bottom:.5rem;}
+  .principle p{color:var(--text-muted); font-size:.94rem;}
+
+  /* ---------- Timeline (commit-rail) ---------- */
+  .rail{position:relative; padding-left:2.4rem; max-width:820px;}
+  .rail::before{
+    content:""; position:absolute; left:6px; top:8px; bottom:8px; width:1px; background:var(--border);
+  }
+  .rail-item{position:relative; padding-bottom:3rem;}
+  .rail-item:last-child{padding-bottom:0;}
+  .rail-dot{
+    position:absolute; left:-2.4rem; top:6px; width:13px; height:13px; border-radius:50%;
+    background:var(--surface); border:2px solid var(--accent);
+  }
+  .rail-item.current .rail-dot{background:var(--accent);}
+  .rail-date{font-family:var(--mono); font-size:.8rem; color:var(--accent); margin-bottom:.35rem;}
+  .rail-role{font-size:1.2rem; margin-bottom:.1rem;}
+  .rail-company{color:var(--text-muted); font-size:.95rem; margin-bottom:.9rem;}
+  .rail-item ul{list-style:none;}
+  .rail-item li{
+    position:relative; padding-left:1.1rem; margin-bottom:.55rem; color:var(--text); font-size:.96rem;
+  }
+  .rail-item li::before{content:"›"; position:absolute; left:0; color:var(--accent-2); font-family:var(--mono);}
+
+  /* ---------- Skills (manifest) ---------- */
+  .manifest{border:1px solid var(--border); border-radius:var(--radius); overflow:hidden;}
+  .manifest-row{
+    display:grid; grid-template-columns:220px 1fr; border-top:1px solid var(--border);
+  }
+  .manifest-row:first-child{border-top:none;}
+  @media(max-width:700px){.manifest-row{grid-template-columns:1fr;}}
+  .manifest-key{
+    font-family:var(--mono); font-size:.82rem; color:var(--accent-2); padding:1.1rem 1.3rem;
+    background:var(--surface-2); border-right:1px solid var(--border);
+  }
+  @media(max-width:700px){.manifest-key{border-right:none; border-bottom:1px solid var(--border);}}
+  .manifest-val{padding:1.1rem 1.3rem; display:flex; flex-wrap:wrap; gap:.5rem;}
+  .badge{
+    font-family:var(--mono); font-size:.78rem; padding:.32rem .6rem; border:1px solid var(--border);
+    border-left:2px solid var(--accent); border-radius:2px; color:var(--text); white-space:nowrap;
+  }
+
+  /* ---------- Projects ---------- */
+  .projects-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:1.2rem;}
+  @media(max-width:760px){.projects-grid{grid-template-columns:1fr;}}
+  .project{
+    border:1px solid var(--border); border-radius:var(--radius); padding:1.6rem; background:var(--surface);
+  }
+  .project h3{font-size:1.08rem; margin-bottom:.55rem;}
+  .project p{color:var(--text-muted); font-size:.92rem; margin-bottom:1rem;}
+  .project .tags{display:flex; flex-wrap:wrap; gap:.4rem;}
+  .tag-sm{font-family:var(--mono); font-size:.72rem; color:var(--text-muted);}
+  .tag-sm:not(:last-child)::after{content:"·"; margin-left:.4rem; color:var(--border);}
+
+  /* ---------- Publication ---------- */
+  .pub-block{
+    border:1px solid var(--border); border-left:2px solid var(--accent-2); border-radius:var(--radius);
+    padding:1.6rem 1.8rem; background:var(--surface);
+  }
+  .pub-block h3{font-size:1.05rem; font-style:italic; font-weight:500; margin-bottom:.6rem;}
+  .pub-meta{font-family:var(--mono); font-size:.82rem; color:var(--text-muted);}
+  .pub-meta a{color:var(--accent-2);}
+  .pub-meta a:hover{text-decoration:underline;}
+
+  /* ---------- Certificates & Education ---------- */
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:3rem;}
+  @media(max-width:800px){.two-col{grid-template-columns:1fr;}}
+  .cert-list{list-style:none;}
+  .cert-list li{
+    padding:.85rem 0; border-bottom:1px solid var(--border); font-size:.94rem;
+    display:flex; justify-content:space-between; gap:1rem;
+  }
+  .cert-list li:first-child{padding-top:0;}
+  .cert-list .cert-issuer{color:var(--text-muted); font-family:var(--mono); font-size:.78rem; white-space:nowrap;}
+
+  .edu-block{padding:.2rem 0;}
+  .edu-block h3{font-size:1.1rem; margin-bottom:.3rem;}
+  .edu-block p{color:var(--text-muted); font-size:.94rem;}
+
+  /* ---------- Footer ---------- */
+  footer{border-top:1px solid var(--border); padding:4rem 0 2.5rem;}
+  .footer-grid{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:2rem;}
+  footer h2{font-size:1.7rem; margin-bottom:.6rem;}
+  footer p{color:var(--text-muted); max-width:44ch;}
+  .footer-links{display:flex; flex-direction:column; gap:.6rem; font-family:var(--mono); font-size:.88rem;}
+  .footer-links a{color:var(--text-muted); transition:color .2s;}
+  .footer-links a:hover{color:var(--accent);}
+  .copyright{
+    font-family:var(--mono); font-size:.78rem; color:var(--text-muted);
+    margin-top:3rem; padding-top:1.6rem; border-top:1px solid var(--border);
+  }
+
+  .reveal{opacity:0; transform:translateY(14px); animation:reveal .7s ease forwards;}
+  @keyframes reveal{to{opacity:1; transform:translateY(0);}}
+</style>
 </head>
 <body>
-    <!-- Header & Navigation -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Kaleab<span>Walelign</span></div>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#certificates">Certificates</a></li>
-                    <li><a href="#education">Education</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Kaleab Walelign</h1>
-                    <p class="title">DevOps Engineer & Technical Consultant</p>
-                    <p>Experienced DevOps Engineer and Technical Consultant with expertise in cloud infrastructure, Kubernetes, Big Data ecosystems, and full-stack development. Passionate about building scalable, reliable systems and implementing DevOps best practices.</p>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Addis Ababa, Ethiopia</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+251941775108 / +251707468346</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>kaleabwalelign@gmail.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-github"></i>
-                            <a href="https://github.com/Kaleab-Walelign" target="_blank">github.com/Kaleab-Walelign</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-linkedin"></i>
-                            <a href="https://www.linkedin.com/in/kaleab-walelign/" target="_blank">linkedin.com/in/kaleab-walelign/</a>
-                        </div>
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo"><span class="prompt">kaleab@devops</span>:~$</div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#education">Education</a></li>
+      </ul>
+      <a href="mailto:kaleabwalelign@gmail.com" class="nav-cta">say hello →</a>
+    </nav>
+  </div>
+</header>
 
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <div class="profile-img-placeholder">
-                        <!-- <i class="fas fa-user-circle" style="font-size: 300px; color: #cbd5e1;"></i> -->
-                         <img src="port4.jpg" style="width: 450px; height: 450px; border-radius: 50%; object-fit: cover;" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-title">Work Experience</h2>
-            <div class="timeline">
-                <!-- Experience 1 -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="time-period">04/2025 – Present</div>
-                        <h3>Technical Consultant</h3>
-                        <h4>ATI (Ethiopian Agriculture and Transformation Institute)</h4>
-                        <ul>
-                            <li>Led the full development and operation of Ethiopia's National Rangeland Monitoring System using Python (ML/Deep Learning) and geospatial analysis.</li>
-                            <li>Acted as Solution Architect for the Farmer Production Cluster (FPC) Digitization Project on Kubernetes.</li>
-                            <li>Designed and deployed web-based platforms for major international projects including UNFSS Event Management System.</li>
-                            <li>Developed the National Market Information System (NMIS) mobile application with RESTful API.</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Experience 2 -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="time-period">2024 – 03/2025</div>
-                        <h3>DevOps and Cloud Engineer</h3>
-                        <h4>OpenG2P</h4>
-                        <ul>
-                            <li>Built robust Kubernetes environments using RKE2 and Rancher for container orchestration.</li>
-                            <li>Architected and implemented system structures for National Farmer Profile Project and National Social Registry Project.</li>
-                            <li>Implemented horizontal scaling for high-traffic applications and set up ODK for data collection.</li>
-                            <li>Designed dashboards using Superset and OpenSearch for data visualization and real-time monitoring.</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Experience 3 -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="time-period">04/2023 – 04/2024</div>
-                        <h3>Bigdata DevOps Engineer</h3>
-                        <h4>Exceed (Safaricom)</h4>
-                        <ul>
-                            <li>Designed and deployed end-to-end Big Data application ecosystems on Kubernetes.</li>
-                            <li>Executed full migration of applications and databases between environments with minimal downtime.</li>
-                            <li>Introduced Druid (Imply) and Trino to enhance Big Data ecosystem performance.</li>
-                            <li>Implemented CI/CD pipelines to automate workflows and enable rapid software delivery.</li>
-                            <li>PostgreSQL streaming data replication across different regions.</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Experience 4 -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="time-period">2022 – 04/2023</div>
-                        <h3>Software Engineer</h3>
-                        <h4>Huawei</h4>
-                        <ul>
-                            <li>Maintained and troubleshooted cloud-based VAS systems for Ethio Telecom (USSD, SMS, CRBT, IVR, MMS).</li>
-                            <li>Continuously monitored system performance and optimized for seamless service delivery.</li>
-                            <li>Managed client accounts and collaborated with cross-functional teams.</li>
-                            <li>Performed software updates and upgrades with zero data loss.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            
-            <div class="tabs">
-                <div class="tab active" data-tab="devops">DevOps & Cloud</div>
-                <div class="tab" data-tab="backend">Backend Development</div>
-                <div class="tab" data-tab="bigdata">Big Data</div>
-                <div class="tab" data-tab="ml">Machine Learning</div>
-                <div class="tab" data-tab="other">Other Skills</div>
-            </div>
-            
-            <div class="tab-content active" id="devops-tab">
-                <div class="skills-container">
-                    <div class="skill-category">
-                        <h3>DevOps Tools</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Kubernetes</span>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">GitHub Actions</span>
-                            <span class="skill-tag">Jenkins</span>
-                            <span class="skill-tag">RKE2</span>
-                            <span class="skill-tag">Rancher</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Infrastructure as Code</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Terraform</span>
-                            <span class="skill-tag">Ansible</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Cloud Platforms</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">AWS</span>
-                            <span class="skill-tag">GCP</span>
-                            <span class="skill-tag">Azure</span>
-                            <span class="skill-tag">On-premise</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Monitoring</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Prometheus</span>
-                            <span class="skill-tag">Grafana</span>
-                            <span class="skill-tag">Alert Manager</span>
-                            <span class="skill-tag">Splunk</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="backend-tab">
-                <div class="skills-container">
-                    <div class="skill-category">
-                        <h3>Backend Languages</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Go</span>
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">Scala</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Frameworks</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Django</span>
-                            <span class="skill-tag">Spring Boot</span>
-                            <span class="skill-tag">Django REST</span>
-                            <span class="skill-tag">Odoo ERP</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>API Development</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">API Design</span>
-                            <span class="skill-tag">Microservices</span>
-                            <span class="skill-tag">RESTful APIs</span>
-                            <span class="skill-tag">API Security</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Databases</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">PostgreSQL</span>
-                            <span class="skill-tag">SQL Server</span>
-                            <span class="skill-tag">Druid</span>
-                            <span class="skill-tag">Hive</span>
-                            <span class="skill-tag">DynamoDB</span>
-                            <span class="skill-tag">HBase</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="bigdata-tab">
-                <div class="skills-container">
-                    <div class="skill-category">
-                        <h3>Big Data Technologies</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Hadoop</span>
-                            <span class="skill-tag">Spark</span>
-                            <span class="skill-tag">Kafka</span>
-                            <span class="skill-tag">Hive</span>
-                            <span class="skill-tag">Yarn</span>
-                            <span class="skill-tag">NiFi</span>
-                            <span class="skill-tag">Airflow</span>
-                            <span class="skill-tag">Trino</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Data Processing</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Data Migration</span>
-                            <span class="skill-tag">Streaming Replication</span>
-                            <span class="skill-tag">ETL Pipelines</span>
-                            <span class="skill-tag">Real-time Analytics</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="ml-tab">
-                <div class="skills-container">
-                    <div class="skill-category">
-                        <h3>Machine Learning</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">k-Nearest Neighbors</span>
-                            <span class="skill-tag">Linear Regression</span>
-                            <span class="skill-tag">Logistic Regression</span>
-                            <span class="skill-tag">Support Vector Machines</span>
-                            <span class="skill-tag">Decision Trees</span>
-                            <span class="skill-tag">Random Forests</span>
-                            <span class="skill-tag">Neural Networks</span>
-                            <span class="skill-tag">Deep Learning</span>
-                            <span class="skill-tag">Clustering</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Data Analytics</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Power BI</span>
-                            <span class="skill-tag">Pandas</span>
-                            <span class="skill-tag">Plotly</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="other-tab">
-                <div class="skills-container">
-                    <div class="skill-category">
-                        <h3>Frontend Development</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Vue.js</span>
-                            <span class="skill-tag">ReactJS</span>
-                            <span class="skill-tag">Tailwind CSS</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Remote Sensing & GIS</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">GIS</span>
-                            <span class="skill-tag">Geomap</span>
-                            <span class="skill-tag">Google Earth Engine</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Networking</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Subnetting</span>
-                            <span class="skill-tag">DNS</span>
-                            <span class="skill-tag">Linux Administration</span>
-                            <span class="skill-tag">VPC</span>
-                            <span class="skill-tag">Route53</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Leadership</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Project Management</span>
-                            <span class="skill-tag">Agile/Scrum</span>
-                            <span class="skill-tag">Solution Architecture</span>
-                            <span class="skill-tag">Team Leadership</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Recent Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>National Rangeland Monitoring System</h3>
-                        <p>Led the full development and operation of Ethiopia's National Rangeland Monitoring System, integrating Python (ML/Deep Learning) and geospatial analysis.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Deep Learning</span>
-                            <span class="tech-tag">GIS</span>
-                            <span class="tech-tag">Geospatial Analysis</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>Kubernetes CI/CD Pipeline</h3>
-                        <p>Built K8s cluster and implemented full CI/CD pipeline using RKE2, Jenkins, AWS, Docker, Kubernetes, and Nginx.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Kubernetes</span>
-                            <span class="tech-tag">CI/CD</span>
-                            <span class="tech-tag">Jenkins</span>
-                            <span class="tech-tag">AWS</span>
-                            <span class="tech-tag">Docker</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>Cloud & Database Migration</h3>
-                        <p>Executed cloud migration, database migration for Big Data applications, data warehouse, and Cloud Native Functions (CNF).</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Cloud Migration</span>
-                            <span class="tech-tag">Database Migration</span>
-                            <span class="tech-tag">Big Data</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>National Market Information System</h3>
-                        <p>Developed NMIS mobile application with RESTful API to provide farmers and traders with real-time market data.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Mobile App</span>
-                            <span class="tech-tag">REST API</span>
-                            <span class="tech-tag">Real-time Data</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>UN Food System Event Management</h3>
-                        <p>Designed and deployed web-based platform for UN Food Systems Summit Event Management System.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Web Platform</span>
-                            <span class="tech-tag">Event Management</span>
-                            <span class="tech-tag">UN Projects</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>Big Data System Architecture</h3>
-                        <p>Solution architecture design, deployment, monitoring and management of big data system architecture.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Solution Architecture</span>
-                            <span class="tech-tag">Big Data</span>
-                            <span class="tech-tag">System Design</span>
-                            <span class="tech-tag">Monitoring</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certificates Section -->
-    <section id="certificates" class="certificates">
-        <div class="container">
-            <h2 class="section-title">Certificates</h2>
-            <div class="certificates-grid">
-                <div class="certificate-card">
-                    <h3>KCMA: Kubernetes and Cloud Native Associate</h3>
-                    <p>Linux Foundation</p>
-                </div>
-                
-                <div class="certificate-card">
-                    <h3>DevOps with AWS</h3>
-                    <p>LinkedIn</p>
-                </div>
-                
-                <div class="certificate-card">
-                    <h3>Design and Analysis Secure Networked Systems</h3>
-                    <p>University of Colorado</p>
-                </div>
-                
-                <div class="certificate-card">
-                    <h3>Foundations of Project Management</h3>
-                    <p>Google</p>
-                </div>
-                
-                <div class="certificate-card">
-                    <h3>Technical Support Fundamentals</h3>
-                    <p>Google</p>
-                </div>
-                
-                <div class="certificate-card">
-                    <h3>Linux System Administration with IBM Power System</h3>
-                    <p>IBM</p>
-                </div>
-                
-                <div class="certificate-card">
-                    <h3>Introduction to Cyber Security Tools & Cyber Attack</h3>
-                    <p>IBM & Coursera</p>
-                </div>
-                
-                <div class="certificate-card">
-                    <h3>Data Science</h3>
-                    <p>IBM</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="education">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="education-content">
-                <div class="education-item">
-                    <h3>BSc in Computer Science</h3>
-                    <h4>Unity University</h4>
-                    <p>Addis Ababa, Ethiopia</p>
-                </div>
-                
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <h2>Kaleab Walelign</h2>
-            <p>DevOps Engineer & Technical Consultant</p>
-            
-            <div class="social-links">
-                <a href="https://github.com/Kaleab-Walelign" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
-            </div>
-            
-            <div class="contact-info">
-                <p><i class="fas fa-phone"></i> +251941775108 / +251707468346</p>
-                <p><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</p>
-            </div>
-            
-            <p class="copyright">© 2023 Kaleab Walelign. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Print Button -->
-    <div class="print-btn" id="printBtn">
-        <i class="fas fa-print"></i>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="reveal" style="animation-delay:.05s">
+      <div class="kicker">available for principal / staff devops roles</div>
+      <h1>Kaleab Walelign</h1>
+      <div class="role">Principal DevOps Engineer , Platform &amp; Infrastructure Architecture</div>
+      <p class="lede">I design and run the infrastructure underneath national-scale systems , Kubernetes platforms, multi-cloud and on-prem private cloud, and the DevSecOps pipelines that keep them shipping safely. 7+ years building for government, UN, and telecom programs across Africa.</p>
+      <div class="hero-actions">
+        <a href="mailto:kaleabwalelign@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> Get in touch</a>
+        <a href="https://www.linkedin.com/in/kaleab-walelign/" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/Kaleab-Walelign" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
+      </div>
+      <div class="hero-meta">
+        <span><i class="fas fa-location-dot"></i> Addis Ababa, Ethiopia</span>
+        <span><i class="fas fa-phone"></i> +251 944 175 108</span>
+        <span><i class="fas fa-certificate"></i> KCNA Certified</span>
+      </div>
     </div>
 
-    <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-        
-        // Tab functionality for skills section
-        const tabs = document.querySelectorAll('.tab');
-        const tabContents = document.querySelectorAll('.tab-content');
-        
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // Remove active class from all tabs and contents
-                tabs.forEach(t => t.classList.remove('active'));
-                tabContents.forEach(content => content.classList.remove('active'));
-                
-                // Add active class to clicked tab
-                tab.classList.add('active');
-                
-                // Show corresponding tab content
-                const tabId = tab.getAttribute('data-tab');
-                document.getElementById(`${tabId}-tab`).classList.add('active');
-            });
-        });
-        
-        // Print functionality
-        const printBtn = document.getElementById('printBtn');
-        printBtn.addEventListener('click', () => {
-            window.print();
-        });
-        
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Add scroll effect to header
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if(window.scrollY > 100) {
-                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
-            }
-        });
-    </script>
+    <div class="topo-wrap reveal" style="animation-delay:.2s">
+      <div class="portrait-frame">
+        <svg class="portrait-rings" viewBox="0 0 620 620" aria-hidden="true">
+          <circle class="topo-ring" cx="310" cy="310" r="230"/>
+          <circle class="topo-ring" cx="310" cy="310" r="280" stroke-dasharray="2 7"/>
+        </svg>
+        <div class="portrait-circle">
+          <img src="port4.jpg" style=" border-radius: 50%; object-fit: cover;" />
+          
+        </div>
+        <div class="portrait-tag">
+          <i class="fas fa-location-dot"></i> Addis Ababa, ET
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="container stats-grid">
+    <div><div class="stat-num">7+</div><div class="stat-label">Years across gov, UN &amp; telecom infra</div></div>
+    <div><div class="stat-num">10+</div><div class="stat-label">Engineers led as Scrum Master</div></div>
+    <div><div class="stat-num">~40%</div><div class="stat-label">Cut in deployment cycle time</div></div>
+    <div><div class="stat-num">Millions</div><div class="stat-label">End users on platforms I run</div></div>
+  </div>
+</section>
+
+<section id="approach">
+  <div class="container">
+    <div class="kicker">how I work</div>
+    <h2>What I bring to a platform team</h2>
+    <p class="section-sub">Principal-level work is as much about direction-setting as it is about the stack.</p>
+    <div class="principles-grid">
+      <div class="principle">
+        <span class="idx">01</span>
+        <h3>Platform architecture at scale</h3>
+        <p>Multi-cloud and hybrid systems, on-prem private cloud, and Kubernetes platforms designed to hold up under national-scale traffic and real disaster-recovery requirements.</p>
+      </div>
+      <div class="principle">
+        <span class="idx">02</span>
+        <h3>Technical leadership</h3>
+        <p>Scrum Master and Solution Architect for 10+ engineer teams , owning roadmap, release planning, and delivery outcomes, not just the pipeline.</p>
+      </div>
+      <div class="principle">
+        <span class="idx">03</span>
+        <h3>DevSecOps by default</h3>
+        <p>Security-integrated CI/CD as the standard, not an add-on , SAST/DAST built into the pipeline from day one, cutting risk and cycle time together.</p>
+      </div>
+      <div class="principle">
+        <span class="idx">04</span>
+        <h3>Zero-drama migrations</h3>
+        <p>A track record of zero-data-loss cutovers and cross-region replication under load, for systems that can't afford downtime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="kicker">career</div>
+    <h2>Experience</h2>
+    <p class="section-sub">Six years moving from telecom operations to platform architecture and technical leadership.</p>
+
+    <div class="rail">
+      <div class="rail-item current">
+        <div class="rail-dot"></div>
+        <div class="rail-date">01/2026 , Present</div>
+        <div class="rail-role">Platform / DevOps Engineer</div>
+        <div class="rail-company">Ethiopian Agricultural Transformation Institute (ATI) · Addis Ababa</div>
+        <ul>
+          <li>Own platform strategy for the enterprise private cloud, standardizing on SUSE Rancher Prime (Harvester, Longhorn, RKE2) for government stakeholders.</li>
+          <li>Scrum Master for a 10+ engineer team , agile ceremonies and release planning for national-scale government platforms.</li>
+          <li>Architected DevSecOps CI/CD with integrated SAST/DAST, cutting deployment cycle time ~40%.</li>
+          <li>Run production Kubernetes clusters serving millions of end users; set org-wide standards for deployment and incident response.</li>
+        </ul>
+      </div>
+
+      <div class="rail-item">
+        <div class="rail-dot"></div>
+        <div class="rail-date">04/2025 , 11/2025</div>
+        <div class="rail-role">Technical Consultant</div>
+        <div class="rail-company">Ethiopian Agricultural Transformation Institute (ATI) · Addis Ababa</div>
+        <ul>
+          <li>Led Ethiopia's National Rangeland Monitoring System , deep learning and geospatial analysis (GIS, Google Earth Engine) at national scale.</li>
+          <li>Solution Architect for the Farmer Production Cluster digitisation project , highly available Kubernetes platform, Prometheus + Grafana monitoring.</li>
+          <li>Shipped web platforms for three international initiatives, including the UNFSS Event Management System.</li>
+          <li>Built the National Market Information System (NMIS) mobile app and its secure RESTful API.</li>
+        </ul>
+      </div>
+
+      <div class="rail-item">
+        <div class="rail-dot"></div>
+        <div class="rail-date">2024 , 03/2025</div>
+        <div class="rail-role">DevOps &amp; Cloud Engineer</div>
+        <div class="rail-company">OpenG2P · Addis Ababa</div>
+        <ul>
+          <li>Architected RKE2 Kubernetes clusters across AWS and on-prem, simplified via Rancher.</li>
+          <li>Led full CI/CD automation for a DevOps team while holding DevSecOps standards across workflows.</li>
+          <li>Designed Nginx/Istio load-balancing for microservices; closed monitoring gaps with custom AlertManager rules.</li>
+          <li>Architected the National Farmer Profile and National Social Registry systems with ATI and EDRMC.</li>
+        </ul>
+      </div>
+
+      <div class="rail-item">
+        <div class="rail-dot"></div>
+        <div class="rail-date">04/2023 , 04/2024</div>
+        <div class="rail-role">Big Data DevOps Engineer</div>
+        <div class="rail-company">Exceed (Safaricom) · Addis Ababa</div>
+        <ul>
+          <li>Built an end-to-end Big Data ecosystem on Kubernetes , Kafka, Hadoop, Spark, Druid.</li>
+          <li>Migrated all Big Data applications and databases with zero data loss and minimal downtime.</li>
+          <li>Introduced Druid (Imply) and Trino, materially improving query performance for M-Pesa and telecom workloads.</li>
+        </ul>
+      </div>
+
+      <div class="rail-item">
+        <div class="rail-dot"></div>
+        <div class="rail-date">2022 , 04/2023</div>
+        <div class="rail-role">Software Engineer</div>
+        <div class="rail-company">Huawei · Addis Ababa</div>
+        <ul>
+          <li>Maintained cloud-based VAS systems (USSD, SMS, CRBT, IVR, MMS) for Ethio Telecom.</li>
+          <li>Ran zero-data-loss upgrades and migrations across critical telecom infrastructure.</li>
+        </ul>
+      </div>
+
+      <div class="rail-item">
+        <div class="rail-dot"></div>
+        <div class="rail-date">01/2018 , 11/2020</div>
+        <div class="rail-role">Junior Software Developer</div>
+        <div class="rail-company">Tabby (Odoo) / Scopic · Remote</div>
+        <ul>
+          <li>Built Django REST microservices and analytics dashboards (Pandas + Plotly).</li>
+          <li>Deployed with Docker/Kubernetes/AWS; established CI/CD and PyTest suites.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="kicker">stack</div>
+    <h2>Technical skills</h2>
+    <p class="section-sub">The platform, cloud, and delivery toolchain behind the work above.</p>
+    <div class="manifest">
+      <div class="manifest-row">
+        <div class="manifest-key">platform &amp; architecture</div>
+        <div class="manifest-val">
+          <span class="badge">Multi-cloud</span><span class="badge">Hybrid architecture</span><span class="badge">OpenStack</span><span class="badge">VMware vSphere/ESXi</span><span class="badge">Proxmox</span><span class="badge">Capacity planning</span><span class="badge">Disaster recovery</span>
+        </div>
+      </div>
+      <div class="manifest-row">
+        <div class="manifest-key">containers &amp; orchestration</div>
+        <div class="manifest-val">
+          <span class="badge">Kubernetes</span><span class="badge">RKE2</span><span class="badge">Rancher / Prime</span><span class="badge">K3s</span><span class="badge">Docker</span><span class="badge">Istio</span><span class="badge">Nginx Ingress</span><span class="badge">Calico CNI</span>
+        </div>
+      </div>
+      <div class="manifest-row">
+        <div class="manifest-key">ci/cd &amp; devsecops</div>
+        <div class="manifest-val">
+          <span class="badge">Jenkins</span><span class="badge">GitHub Actions</span><span class="badge">GitLab CI</span><span class="badge">ArgoCD</span><span class="badge">Terraform</span><span class="badge">Ansible</span><span class="badge">SonarQube</span><span class="badge">Trivy</span><span class="badge">OWASP ZAP</span><span class="badge">Vault</span>
+        </div>
+      </div>
+      <div class="manifest-row">
+        <div class="manifest-key">public cloud</div>
+        <div class="manifest-val">
+          <span class="badge">AWS: EKS/EC2/S3/RDS/Lambda</span><span class="badge">Azure: AKS/DevOps/ACR</span><span class="badge">GCP: GKE/Cloud Run/BigQuery</span>
+        </div>
+      </div>
+      <div class="manifest-row">
+        <div class="manifest-key">observability</div>
+        <div class="manifest-val">
+          <span class="badge">Prometheus</span><span class="badge">Grafana</span><span class="badge">AlertManager</span><span class="badge">Splunk</span><span class="badge">Loki</span><span class="badge">OpenTelemetry</span><span class="badge">Jaeger</span><span class="badge">ELK</span>
+        </div>
+      </div>
+      <div class="manifest-row">
+        <div class="manifest-key">big data &amp; streaming</div>
+        <div class="manifest-val">
+          <span class="badge">Kafka (Strimzi)</span><span class="badge">Hadoop</span><span class="badge">Spark</span><span class="badge">Druid (Imply)</span><span class="badge">Trino</span><span class="badge">Airflow</span><span class="badge">NiFi</span>
+        </div>
+      </div>
+      <div class="manifest-row">
+        <div class="manifest-key">databases</div>
+        <div class="manifest-val">
+          <span class="badge">PostgreSQL (HA/replication)</span><span class="badge">MySQL</span><span class="badge">DynamoDB</span><span class="badge">Redis</span><span class="badge">MongoDB</span><span class="badge">Ceph</span>
+        </div>
+      </div>
+      <div class="manifest-row">
+        <div class="manifest-key">backend &amp; apis</div>
+        <div class="manifest-val">
+          <span class="badge">Go</span><span class="badge">Python (Django/FastAPI)</span><span class="badge">Node.js</span><span class="badge">Spring Boot</span><span class="badge">REST &amp; gRPC</span>
+        </div>
+      </div>
+      <div class="manifest-row">
+        <div class="manifest-key">leadership</div>
+        <div class="manifest-val">
+          <span class="badge">Scrum Master</span><span class="badge">Solution Architect</span><span class="badge">Agile/Jira</span><span class="badge">Stakeholder management</span><span class="badge">Vendor &amp; gov engagement</span>
+        </div>
+      </div>
+      <div class="manifest-row">
+        <div class="manifest-key">ml &amp; geospatial</div>
+        <div class="manifest-val">
+          <span class="badge">Deep learning</span><span class="badge">GIS</span><span class="badge">Google Earth Engine</span><span class="badge">geemap</span><span class="badge">GDAL / rasterio</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="publication">
+  <div class="container">
+    <div class="kicker">research</div>
+    <h2>Publication</h2>
+    <div class="pub-block">
+      <h3>Quantifying rangeland aboveground biomass dynamics using data fusion and machine learning framework in the Borana rangelands of Ethiopia</h3>
+      <div class="pub-meta">June 2026 · Ethiopia · <a href="https://www.sciencedirect.com/science/article/pii/S2667010026001071" target="_blank">sciencedirect.com/science/article/pii/S2667010026001071</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="certificates">
+  <div class="container">
+    <div class="kicker">credentials</div>
+    <h2>Certificates &amp; Education</h2>
+    <div class="two-col">
+      <div>
+        <ul class="cert-list">
+          <li><span>KCNA , Kubernetes and Cloud Native Associate</span><span class="cert-issuer">Linux Foundation</span></li>
+          <li><span>DevOps with AWS</span><span class="cert-issuer">LinkedIn</span></li>
+          <li><span>Design &amp; Analysis of Secure Networked Systems</span><span class="cert-issuer">U. Colorado</span></li>
+          <li><span>Foundations of Project Management</span><span class="cert-issuer">Google</span></li>
+          <li><span>Technical Support Fundamentals</span><span class="cert-issuer">Google</span></li>
+          <li><span>Linux System Administration, IBM Power</span><span class="cert-issuer">IBM</span></li>
+          <li><span>Intro to Cyber Security Tools &amp; Attacks</span><span class="cert-issuer">IBM</span></li>
+          <li><span>Data Science</span><span class="cert-issuer">IBM</span></li>
+          <li><span>AI UniPod</span><span class="cert-issuer">UNDP / EAII</span></li>
+        </ul>
+      </div>
+      <div id="education">
+        <div class="edu-block">
+          <h3>BSc in Computer Science</h3>
+          <p>Unity University , Addis Ababa, Ethiopia</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h2>Let's build something reliable.</h2>
+        <p>Open to Principal / Staff DevOps and Platform Engineering roles , reach out directly or connect on LinkedIn.</p>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:kaleabwalelign@gmail.com"><i class="fas fa-envelope"></i> kaleabwalelign@gmail.com</a>
+        <a href="tel:+251944175108"><i class="fas fa-phone"></i> +251 944 175 108</a>
+        <a href="https://www.linkedin.com/in/kaleab-walelign/" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/kaleab-walelign</a>
+        <a href="https://github.com/Kaleab-Walelign" target="_blank"><i class="fab fa-github"></i> github.com/Kaleab-Walelign</a>
+      </div>
+    </div>
+    <div class="copyright">$ echo "© 2026 Kaleab Walelign , built for uptime."</div>
+  </div>
+</footer>
+
+<script>
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const navLinks = document.getElementById('navLinks');
+  mobileMenuBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
+  document.querySelectorAll('.nav-links a').forEach(link=>{
+    link.addEventListener('click', ()=> navLinks.classList.remove('active'));
+  });
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', function(e){
+      const id = this.getAttribute('href');
+      if(id==='#') return;
+      const target = document.querySelector(id);
+      if(target){
+        e.preventDefault();
+        window.scrollTo({top: target.offsetTop - 70, behavior:'smooth'});
+        navLinks.classList.remove('active');
+      }
+    });
+  });
+</script>
 </body>
 </html>
